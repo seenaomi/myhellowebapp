@@ -28,5 +28,7 @@ urlpatterns = patterns ('',
     url(r'^posts/(?P<slug>[-\w]+)/$',
         'collection.views.post_detail',
         name='post_detail'),
+    url(r'^posts/(?P<slug>[-\w]+)/edit/$',
+        'collection.views.edit_post', name='edit_post'),
     url(r'^admin/', include(admin.site.urls)),
 )
