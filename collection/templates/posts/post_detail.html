@@ -3,6 +3,10 @@
 {% block content %}
     <h1>{{ post.title }}</h1>
 	<p>{{ post.content }}</p>
-	<a href="{% url 'edit_post' slug=post.slug %}">Edit me!</a>
+	{% if user == post.user %}
+	    <p>
+            <a href="{% url 'edit_post' slug=post.slug %}">Edit me!</a>
+        </p>
+    {% endif %}            
 {% endblock %}	
 
