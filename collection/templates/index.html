@@ -2,8 +2,9 @@
 {% load humanize %}
 {% block title %}Homepage - {{ block.super }}{% endblock %}
 {% block content %}
-	<h1>Hello World!</h1>
-	<p>{{ number|apnumber }}</p>
-	<p>This is my name: {{ thing|title }}</p>
+	{% for post in posts %}
+	<h2>{{ post.title }}</h2>
+	<p>{{ post.content }}</p>
+	{% endfor %}
 {% endblock %}	
 
