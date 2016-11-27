@@ -71,4 +71,15 @@ def create_post(request):
 
     return render(request, 'posts/create_post.html', {
         'form': form,
-    })  
+    })
+
+def browse_by_title(request, initial=None):
+    if initial:
+        posts = Post.objects.filter(
+            title__istartswith=initial).order_by('title')
+    else:
+        posts = Post.objects.all().order_by('title')
+    return render(request, 'search/search.html', {
+        'posts': posts,
+        'initial': initial,
+    })                  
